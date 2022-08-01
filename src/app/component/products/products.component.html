@@ -1,0 +1,49 @@
+<div class="card-top container-fluid">
+    <div class="container d-flex">
+        <div class="item">
+            <a (click)="filter('')">
+                <img src="https://rukminim2.flixcart.com/flap/128/128/image/f15c02bfeb02d15d.png?q=100">
+                <h6>All products</h6>
+            </a>
+        </div>
+
+
+        <div class="item">
+            <a (click)="filter('electronics')">
+                <img src="https://rukminim2.flixcart.com/flap/128/128/image/69c6589653afdb9a.png?q=100">
+                <h6>Electronics</h6>
+            </a>
+        </div>
+        <div class="item">
+            <a (click)="filter('fashion')">
+                <img src="https://rukminim2.flixcart.com/flap/128/128/image/c12afc017e6f24cb.png?q=100">
+                <h6>Fashions</h6>
+            </a>
+        </div>
+        <div class="item">
+            <a (click)="filter('jewelery')">
+                <img style="width: 62px; margin-top: 5px;" src="https://rukminim2.flixcart.com/image/880/1056/kqco5u80/jewellery-set/g/c/h/780-r-a-enterprises-original-imag4dyzceaqhkhp.jpeg?q=50">
+                <h6>Jewellery</h6>
+            </a>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <ng-container *ngFor="let item of filterCategory | filter: searchKey: 'title'">
+            <div class="card col-md-3">
+                <img src="{{item.image}}" alt="">
+                <h5 style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 100ch;">{{item.title | titlecase}}</h5>
+                <p style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 100ch;">{{item.description | titlecase}}</p>
+                <p><strong>price:</strong>${{item.price}}</p>
+                <button class="btn btn-primary" (click)=addtocart(item)>Add to cart</button>
+
+            </div>
+
+        </ng-container>
+
+
+    </div>
+
+</div>
